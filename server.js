@@ -3,7 +3,7 @@ require("dotenv").config({ path: "./configs/.env" });
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const Router = require("./routes/userRoutes.js");
+const Router = require("./routes/user.routes.js");
 
 /* <====================app====================> */
 const app = express();
