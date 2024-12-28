@@ -3,8 +3,7 @@ require("dotenv").config({ path: "./configs/.env" });
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const { Router } = require("./routes/user.route");
-const { home } = require("./Controllers/users.controller");
+const { Router } = require("./routes/user.route.js");
 
 /* <====================app====================> */
 
@@ -13,13 +12,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.static("public"));
-app.use("/api/users", Router);
 
 /* <====================Error Handling ====================> */
 
 app.get("/", (req, res) => {
   res.status(200).sendFile(__dirname + "/views/home.html");
 });
+app.use("/api/users", Router);
 
 app.use("*", (req, res, next) => {
   res.status(404).json({ message: "404 Page Not Found!" });
