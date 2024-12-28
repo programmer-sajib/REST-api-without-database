@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const Router = require("./routes/user.route.js");
+const { homeRoute } = require("./Controllers/users.controller.js");
 
 /* <====================app====================> */
 const app = express();
@@ -15,7 +16,7 @@ app.use(express.static("public"));
 /* <====================Error Handling ====================> */
 
 app.use("/api/users", Router);
-
+app.get("/", homeRoute);
 app.use("*", (req, res, next) => {
   res.status(404).json({ message: "404 Page Not Found!" });
 });

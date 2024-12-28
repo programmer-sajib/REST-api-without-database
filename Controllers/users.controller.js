@@ -1,6 +1,7 @@
 let users = require("../Models/users.model");
+const path = require("path");
 const { v4: uuidv4 } = require("uuid");
-
+const root = path.join(__dirname, "../");
 const readUsers = (req, res) => {
   res.status(200).json(users);
 };
@@ -37,10 +38,14 @@ const deleteUser = (req, res) => {
   users = users.filter((user) => user.id !== +id);
   res.status(200).json(users);
 };
+const homeRoute = (req, res) => {
+  res.status(200).sendFile(root + "views/home.html");
+};
 
 module.exports = {
   readUsers,
   createUser,
   updateUser,
   deleteUser,
+  homeRoute
 };
