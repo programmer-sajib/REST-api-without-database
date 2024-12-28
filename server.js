@@ -3,7 +3,7 @@ require("dotenv").config({ path: "./configs/.env" });
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const { Router } = require("./Routes/user.route");
+const { Router } = require("./routes/user.route");
 const { home } = require("./Controllers/users.controller");
 
 /* <====================app====================> */
@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
+app.use(express.static("public"));
 app.use("/api/users", Router);
 
 /* <====================Error Handling ====================> */
