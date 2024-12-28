@@ -17,6 +17,10 @@ app.use("/api/users", Router);
 
 /* <====================Error Handling ====================> */
 
+app.get("/", (req, res) => {
+  res.redirect("/api/users");
+});
+
 app.use("*", (req, res, next) => {
   res.status(404).json({ message: "404 Page Not Found!" });
 });
