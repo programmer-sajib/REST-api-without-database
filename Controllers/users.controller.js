@@ -1,8 +1,8 @@
 let users = require("../Models/users.model");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
-const root = path.join(__dirname, "../");
-console.log(root + "views/home.html");
+const root = path.join(__dirname, "../views/");
+console.log(root)
 const readUsers = (req, res) => {
   res.status(200).json(users);
 };
@@ -40,7 +40,7 @@ const deleteUser = (req, res) => {
   res.status(200).json(users);
 };
 const homeRoute = (req, res) => {
-  res.status(200).sendFile(root + "/views/home.html");
+  res.status(200).sendFile(root + "/index.html");
 };
 
 module.exports = {
