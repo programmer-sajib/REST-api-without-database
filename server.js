@@ -14,7 +14,7 @@ app.use(express.static("public"));
 
 /* <====================Error Handling ====================> */
 
-app.use("/", Router);
+app.use("/api/users", Router);
 
 app.use("*", (req, res, next) => {
   res.status(404).json({ message: "404 Page Not Found!" });
