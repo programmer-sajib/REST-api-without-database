@@ -2,7 +2,7 @@ let users = require("../Models/users.model");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const root = path.join(__dirname, "../views/");
-console.log(root)
+console.log(root);
 const readUsers = (req, res) => {
   res.status(200).json(users);
 };
@@ -11,7 +11,7 @@ const createUser = (req, res) => {
   const { name, email } = req.body;
   const num = Number(req.body.num);
   const newUser = {
-    id: new Date().getTime(),
+    id: uuidv4(),
     name: name,
     email: email,
     num: num,
