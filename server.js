@@ -18,7 +18,7 @@ app.use("/api/users", Router);
 /* <====================Error Handling ====================> */
 
 app.get("/", (req, res) => {
-  res.redirect("/api/users");
+  res.status(200).sendFile(__dirname + "/views/home.html");
 });
 
 app.use("*", (req, res, next) => {
