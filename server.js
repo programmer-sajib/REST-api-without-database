@@ -4,10 +4,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const Router = require("./routes/user.route.js");
-const app = require("./api/index.js");
+
 
 /* <====================app====================> */
-
+const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
@@ -29,3 +29,6 @@ app.use((err, req, res, next) => {
 });
 
 /* <====================Server Listening On====================> */
+app.listen(3000, () => {
+  console.log("server is running on port 3000");
+});
